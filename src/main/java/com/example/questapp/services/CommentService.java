@@ -33,9 +33,7 @@ public class CommentService {
         else if(postId.isPresent()){
             return commentRepository.findByPostId(postId.get());
         }
-        else{
-            return commentRepository.findAll();
-        }
+        return commentRepository.findAll();
     }
 
     public Comment getOneComment(Long commentId) {
@@ -62,8 +60,7 @@ public class CommentService {
         if(comment.isPresent()){
             Comment commentToUpdate = comment.get();
             commentToUpdate.setText(commentUpdateRequest.getText());
-            commentRepository.save(commentToUpdate);
-            return commentToUpdate;
+            return commentRepository.save(commentToUpdate);
         }
         return null;
     }
