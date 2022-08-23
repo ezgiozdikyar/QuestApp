@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Data
 public class Like {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne(fetch = FetchType.LAZY) //One post can have multiple likes.
